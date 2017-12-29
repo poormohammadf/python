@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>{{title}}</title>
 <style>
 a:link, a:visited {
     background-color: #f11336;
@@ -17,16 +18,22 @@ a:hover, a:active {
 }
 div{
 margin: 0 auto;
-width:30&#37;;
+width:30&#37;
 }
 
 </style>
 </head>
 <body>
-<div>
-    <center><a href="/templates/register.html" target="_blank">Register</a></center>
-    <br>
-    <center><a href="/templates/login.html" target="_blank">Login</a></center>
-</div>
+    <div id="wrapper">
+        <div id="sidebar">
+            <center>
+            <a href="/user/register" target="_blank">Register</a>
+            <a href="/user/login" target="_blank">Login</a>
+            </center>
+        </div>
+        <div id="content">
+            {{!base}}
+        </div>    
+    </div>
 </body>
 </html>

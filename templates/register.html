@@ -1,47 +1,53 @@
-<!DOCTYPE html>
-<html>
+%rebase('templates/index.html', title='Register')
 <link rel="stylesheet" href="/statics/css/style.css">
-<body>
+<style type="text/css">
+    #warn {
+      color: #a30c0c;
+      font-weight: bold;
+      background-color: orange;
+    }
+</style>
+<fieldset>
+  <legend>Register Form</legend>
+  <div>
+    <form action="/register" method='POST'>
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
 
-<h3>Register Form</h3>
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
 
-<div>
-  <form action="/form-submit-r" method='POST'>
-    <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+      <label for="uname">User Name</label>
+      <input type="text" id="uname" name="username" placeholder="Your username.." required>
 
-    <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+  	<label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Your password.." required>
 
-    <label for="uname">User Name</label>
-    <input type="text" id="uname" name="username" placeholder="Your username.." required>
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" placeholder="Your email.." required>
+   	
+   	<label for="gender">Gender</label>
+      <input type="radio" name="gender" value="male" checked> Male
+      <input type="radio" name="gender" value="female"> Female
+      <input type="radio" name="gender" value="other"> Other
 
-	<label for="password">Password</label>
-    <input type="password" id="password" name="password" placeholder="Your password.." required>
+      <br > 
+      <br >  
 
-    <label for="email">Email</label>
-    <input type="text" id="email" name="email" placeholder="Your email.." required>
- 	
- 	<label for="gender">Gender</label>
-    <input type="radio" name="gender" value="male" checked> Male
-    <input type="radio" name="gender" value="female"> Female
-    <input type="radio" name="gender" value="other"> Other
-
-    <br > 
-    <br >  
-
-    <label for="country">Country</label>
-    <select id="country" name="country">
-      <option value="iran">Iran</option>
-      <option value="france">France</option>
-      <option value="australia">Australia</option>
-      <option value="canada">Canada</option>
-      <option value="usa">USA</option>
-    </select>
-
-    <input type="submit" value="Submit">
-  </form>
-</div>
-
-</body>
-</html>
+      <label for="country">Country</label>
+      <select id="country" name="country">
+        <option value="iran">Iran</option>
+        <option value="france">France</option>
+        <option value="australia">Australia</option>
+        <option value="canada">Canada</option>
+        <option value="usa">USA</option>
+      </select>
+      %if ('error' in param) and (param['error'] == 'duplicate'):
+        <div id="warn">
+          Duplicate Error: Please choose another username.
+        </div>
+      %end
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</fieldset>

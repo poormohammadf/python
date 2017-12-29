@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
+%rebase('templates/index.html', title='Users Show')
 <link rel="stylesheet" href="/statics/css/table.css">
-</head>
-<body>
-
 <table id="users">
   <tr>
     <th>First Name</th>
@@ -15,7 +10,7 @@
     <th>gender</th>
     <th>Country</th>
   </tr>
-  %for key,item in data:
+  %for item in param:
     <tr>
       <td>{{ item['firstname'] }}</td>
       <td>{{ item['lastname'] }}</td>
@@ -27,6 +22,3 @@
     </tr>
   %end
 </table>
-
-</body>
-</html>
