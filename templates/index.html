@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{title}}</title>
+<style>
+a:link, a:visited {
+    background-color: #f11336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+a:hover, a:active {
+    background-color: green;
+}
+div{
+margin: 0 auto;
+width:30&#37;
+}
+
+</style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="sidebar">
+            <center>
+            <a href="/user/register" target="_blank">Register</a>
+            <a href="/user/login" target="_blank">Login</a>
+            </center>
+        </div>
+        <div id="content">
+            {{!base}}
+        </div>    
+    </div>
+</body>
+</html>

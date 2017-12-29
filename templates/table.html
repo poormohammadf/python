@@ -1,0 +1,24 @@
+%rebase('templates/index.html', title='Users Show')
+<link rel="stylesheet" href="/statics/css/table.css">
+<table id="users">
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>username</th>
+    <th>password</th>
+    <th>email</th>
+    <th>gender</th>
+    <th>Country</th>
+  </tr>
+  %for item in param:
+    <tr>
+      <td>{{ item['firstname'] }}</td>
+      <td>{{ item['lastname'] }}</td>
+      <td>{{ item['username'] }}</td>
+      <td>{{ item['password'] }}</td>
+      <td>{{ item['email'] }}</td>
+      <td>{{ item['gender'] }}</td>
+      <td>{{ item['country'] }}</td>
+    </tr>
+  %end
+</table>

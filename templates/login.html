@@ -1,0 +1,28 @@
+%rebase('templates/index.html', title='Login')
+<link rel="stylesheet" href="/statics/css/style.css">
+<style type="text/css">
+    #warn {
+      color: #a30c0c;
+      font-weight: bold;
+      background-color: orange;
+    }
+</style>
+<fieldset>
+  <legend>Login Form</legend>
+    <div>
+	  <form action="/users/login/check" method='POST'>
+
+	    <label for="uname">User Name</label>
+	    <input type="text" id="uname" name="username" placeholder="Your username.." required>
+
+	    <label for="password">Password</label>
+	    <input type="password" id="password" name="password" placeholder="Your password.." required>
+	%if ('error' in param) and (param['error'] == 'Authentication failed!'):
+      <div id="warn">
+        Authentication Error: Authentication faileds.
+      </div>
+    %end	    
+	    <input type="submit" value="Submit">
+	  </form>
+    </div>
+</fieldset>
