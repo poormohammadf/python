@@ -4,11 +4,7 @@ from pymongo.errors import DuplicateKeyError
 from bottle import route, run, template, redirect
 from bottle import static_file, request, post , get , response
 from bson.objectid import ObjectId
-<<<<<<< HEAD
 import hashlib
-
-=======
->>>>>>> 1285da2320f2bc3fd9bfe519e67b4c88ec5f72e8
 
 @route('/')
 def home():
@@ -41,11 +37,9 @@ def login_check():
     data = {}
     _user = request.forms.get('username', None).lower()
     _pass = request.forms.get('password', None)
-<<<<<<< HEAD
     check = db.users.find_one({'username': _user, 'password': hashlib.md5(str(_pass)).hexdigest()})
-=======
+
     check = db.users.find_one({'username': _user, 'password': _pass})
->>>>>>> 1285da2320f2bc3fd9bfe519e67b4c88ec5f72e8
     if check:
         response.set_cookie('user_id', str(check['_id']), path='/')
         return redirect('/')
@@ -61,11 +55,7 @@ def form_submit():
   e = request.forms.get('email', None)
   g = request.forms.get('gender', None)
   c = request.forms.get('country', None)
-<<<<<<< HEAD
   data = dict(firstname=f, lastname=l ,username=u , password=hashlib.md5(str(p)).hexdigest() ,email=e,country=c , gender=g)
-=======
-  data = dict(firstname=f, lastname=l ,username=u , password=p ,email=e,country=c , gender=g)
->>>>>>> 1285da2320f2bc3fd9bfe519e67b4c88ec5f72e8
   try:
     #db['users'].insert_one(data)
     db.users.insert_one(data)
