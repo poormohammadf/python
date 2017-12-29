@@ -38,8 +38,6 @@ def login_check():
     _user = request.forms.get('username', None).lower()
     _pass = request.forms.get('password', None)
     check = db.users.find_one({'username': _user, 'password': hashlib.md5(str(_pass)).hexdigest()})
-
-    check = db.users.find_one({'username': _user, 'password': _pass})
     if check:
         response.set_cookie('user_id', str(check['_id']), path='/')
         return redirect('/')
