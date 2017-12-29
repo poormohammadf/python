@@ -55,7 +55,14 @@ def form_submit():
   e = request.forms.get('email', None)
   g = request.forms.get('gender', None)
   c = request.forms.get('country', None)
-  data = dict(firstname=f, lastname=l ,username=u , password=hashlib.md5(str(p)).hexdigest() ,email=e,country=c , gender=g)
+  data = dict(
+    firstname=f, 
+    lastname=l ,
+    username=u , 
+    password=hashlib.md5(str(p)).hexdigest() ,
+    email=e,
+    gender=g, 
+    country=c)
   try:
     #db['users'].insert_one(data)
     db.users.insert_one(data)
