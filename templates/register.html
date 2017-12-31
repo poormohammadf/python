@@ -42,7 +42,7 @@
         <option value="canada">Canada</option>
         <option value="usa">USA</option>
       </select>
-      %if ('error' in param) and (param['error'] == 'duplicate'):
+      %if ('error' in config) and (config['error'] == 'duplicate'):
         <div id="warn">
           Duplicate Error: Please choose another username.
         </div>
