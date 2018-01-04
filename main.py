@@ -86,6 +86,7 @@ def form_submit():
 
 @route('/user/show')
 def successful():
+  global setting
   session_is_set()
   data = list(db.users.find().limit(10))
   return template('templates/table.html', param=data,setting=setting)
