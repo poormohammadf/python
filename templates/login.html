@@ -17,7 +17,7 @@
 
 	    <label for="password">Password</label>
 	    <input type="password" id="password" name="password" placeholder="Your password.." required>
-	%if ('error' in config) and (config['error'] == 'Authentication failed!'):
+	%if ('error' in setting) and (setting['error'] == 'Authentication failed!'):
       <div id="warn">
         Authentication Error: Authentication faileds.
       </div>
